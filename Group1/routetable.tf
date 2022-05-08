@@ -1,4 +1,4 @@
-# Route table: attach Internet Gateway 
+# Route table: attach to the Internet Gateway with all port open
 resource "aws_route_table" "public_rt" {
   vpc_id = aws_vpc.group1.id
   route {
@@ -9,7 +9,7 @@ resource "aws_route_table" "public_rt" {
     Name = "publicRouteTable"
   }
 }
-# Route table association with public subnets
+# Route table needs to be associated with public subnets
 resource "aws_route_table_association" "a" {
   #count = length(var.subnets_cidr)
   subnet_id      = aws_subnet.group_Sub1.id
